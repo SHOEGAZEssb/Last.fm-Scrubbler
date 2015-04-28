@@ -1,16 +1,12 @@
 ﻿using IF.Lastfm.Core.Api;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Scrubbler
 {
+  /// <summary>
+  /// Windows form used to log in.
+  /// </summary>
   public partial class LoginForm : Form
   {
     private LastfmClient _client;
@@ -25,6 +21,9 @@ namespace Scrubbler
       _client = client;
     }
 
+    /// <summary>
+    /// Tries to log the client in with the given username and password.
+    /// </summary>
     private async void Login(object sender, EventArgs e)
     {
       var response = await _client.Auth.GetSessionTokenAsync(textBoxUsername.Text, textBoxPassword.Text);
@@ -35,6 +34,15 @@ namespace Scrubbler
       }
       else
         MessageBox.Show("Failed to login or to authenticate.");
+    }
+
+    /// <summary>
+    /// Checks if the user pressed the enter key in one of the textBoxes and if yes, tries to log in.
+    /// </summary>
+    private void textBoxUsername_KeyPress(object sender, KeyPressEventArgs e)
+    {
+      if (e.KeyChar == (char)13)
+        Login(sender, e);
     }
   }
 }

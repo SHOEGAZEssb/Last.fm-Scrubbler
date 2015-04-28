@@ -51,6 +51,7 @@
       this.textBoxUsername.Name = "textBoxUsername";
       this.textBoxUsername.Size = new System.Drawing.Size(132, 20);
       this.textBoxUsername.TabIndex = 1;
+      this.textBoxUsername.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUsername_KeyPress);
       // 
       // textBoxPassword
       // 
@@ -59,6 +60,7 @@
       this.textBoxPassword.Size = new System.Drawing.Size(132, 20);
       this.textBoxPassword.TabIndex = 3;
       this.textBoxPassword.UseSystemPasswordChar = true;
+      this.textBoxPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxUsername_KeyPress);
       // 
       // lblPassword
       // 
@@ -90,6 +92,7 @@
       this.Controls.Add(this.lblPassword);
       this.Controls.Add(this.textBoxUsername);
       this.Controls.Add(this.lblUsername);
+      this.MaximumSize = new System.Drawing.Size(163, 206);
       this.Name = "LoginForm";
       this.Text = "LoginForm";
       this.ResumeLayout(false);
