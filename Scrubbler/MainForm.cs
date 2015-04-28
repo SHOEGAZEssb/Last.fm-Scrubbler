@@ -38,15 +38,24 @@ namespace Scrubbler
       {
         linkLabelStatus.Text = "Logged in";
         _scrobbler = new Scrobbler(_client.Auth);
+        btnScrobble.Enabled = true;
       }
       else
+      {
         linkLabelStatus.Text = "Not logged in";
+        btnScrobble.Enabled = false;
+      }
     }
 
     private async void btnScrobble_Click(object sender, EventArgs e)
     {
+      lblScrobbleStatusInfo.Text = "Trying to scrobble.";
       Scrobble s = new Scrobble(textBoxArtist.Text, textBoxAlbum.Text, textBoxTrack.Text, DateTimeOffset.Now);
       var response = await _scrobbler.ScrobbleAsync(s);
+      if(response.Success)
+        lblScrobbleStatusInfo.Text = "Successfully scrobbled.";
+      else
+        lblScrobbleStatusInfo.Text = "Failed to scrobble.";
     }
   }
 }

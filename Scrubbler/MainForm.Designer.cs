@@ -140,6 +140,7 @@
       // btnScrobble
       // 
       this.btnScrobble.Dock = System.Windows.Forms.DockStyle.Left;
+      this.btnScrobble.Enabled = false;
       this.btnScrobble.Location = new System.Drawing.Point(0, 0);
       this.btnScrobble.Name = "btnScrobble";
       this.btnScrobble.Size = new System.Drawing.Size(75, 29);
@@ -176,7 +177,7 @@
       // lblScrobbleStatusInfo
       // 
       this.lblScrobbleStatusInfo.AutoSize = true;
-      this.lblScrobbleStatusInfo.Location = new System.Drawing.Point(172, 0);
+      this.lblScrobbleStatusInfo.Location = new System.Drawing.Point(161, 0);
       this.lblScrobbleStatusInfo.Name = "lblScrobbleStatusInfo";
       this.lblScrobbleStatusInfo.Size = new System.Drawing.Size(47, 13);
       this.lblScrobbleStatusInfo.TabIndex = 5;
@@ -190,6 +191,7 @@
       this.Controls.Add(this.panel1);
       this.Controls.Add(this.panelScrobble);
       this.Controls.Add(this.panelTopBar);
+      this.MaximumSize = new System.Drawing.Size(300, 300);
       this.Name = "MainForm";
       this.Text = "Scrubbler";
       this.panelTopBar.ResumeLayout(false);
