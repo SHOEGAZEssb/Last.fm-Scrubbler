@@ -50,7 +50,7 @@ namespace Scrubbler
     private async void btnScrobble_Click(object sender, EventArgs e)
     {
       lblScrobbleStatusInfo.Text = "Trying to scrobble.";
-      Scrobble s = new Scrobble(textBoxArtist.Text, textBoxAlbum.Text, textBoxTrack.Text, DateTimeOffset.Now);
+      Scrobble s = new Scrobble(textBoxArtist.Text, textBoxAlbum.Text, textBoxTrack.Text, dateTimePicker1.Value);
       var response = await _scrobbler.ScrobbleAsync(s);
       if(response.Success)
         lblScrobbleStatusInfo.Text = "Successfully scrobbled.";
