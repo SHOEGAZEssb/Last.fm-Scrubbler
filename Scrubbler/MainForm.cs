@@ -9,12 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using IF.Lastfm.Core.Api;
 using IF.Lastfm.Core.Objects;
+using IF.Lastfm.Core.Scrobblers;
 
 namespace Scrubbler
 {
   public partial class MainForm : Form
   {
     private LastfmClient _client;
+    private Scrobbler _scrobbler;
     private const string APIKEY = "a3629265939bfe7b7e631768118933bd";
     private const string APISECRET = "9857e9c9916a5e2c327a160d1d49d457";
 
@@ -25,6 +27,26 @@ namespace Scrubbler
     {
       InitializeComponent();
       _client = new LastfmClient(APIKEY, APISECRET);
+      
+    }
+
+    private void linkLabelStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+    {
+      LoginForm lf = new LoginForm(_client);
+      lf.ShowDialog();
+      if (_client.Auth.Authenticated)
+      {
+        linkLabelStatus.Text = "Logged in";
+        _scrobbler = new Scrobbler(_client.Auth);
+      }
+      else
+        linkLabelStatus.Text = "Not logged in";
+    }
+
+    private async void btnScrobble_Click(object sender, EventArgs e)
+    {
+      Scrobble s = new Scrobble(textBoxArtist.Text, textBoxAlbum.Text, textBoxTrack.Text, DateTimeOffset.Now);
+      var response = await _scrobbler.ScrobbleAsync(s);
     }
   }
 }

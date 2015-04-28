@@ -28,20 +28,196 @@
     /// </summary>
     private void InitializeComponent()
     {
+      this.panelTopBar = new System.Windows.Forms.Panel();
+      this.linkLabelStatus = new System.Windows.Forms.LinkLabel();
+      this.lblLoginStatus = new System.Windows.Forms.Label();
+      this.panelScrobble = new System.Windows.Forms.Panel();
+      this.lblArtist = new System.Windows.Forms.Label();
+      this.textBoxArtist = new System.Windows.Forms.TextBox();
+      this.textBoxTrack = new System.Windows.Forms.TextBox();
+      this.lblTrack = new System.Windows.Forms.Label();
+      this.panel1 = new System.Windows.Forms.Panel();
+      this.btnScrobble = new System.Windows.Forms.Button();
+      this.textBoxAlbum = new System.Windows.Forms.TextBox();
+      this.lblAlbum = new System.Windows.Forms.Label();
+      this.lblScrobbleStatus = new System.Windows.Forms.Label();
+      this.lblScrobbleStatusInfo = new System.Windows.Forms.Label();
+      this.panelTopBar.SuspendLayout();
+      this.panelScrobble.SuspendLayout();
+      this.panel1.SuspendLayout();
       this.SuspendLayout();
+      // 
+      // panelTopBar
+      // 
+      this.panelTopBar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.panelTopBar.Controls.Add(this.linkLabelStatus);
+      this.panelTopBar.Controls.Add(this.lblLoginStatus);
+      this.panelTopBar.Dock = System.Windows.Forms.DockStyle.Top;
+      this.panelTopBar.Location = new System.Drawing.Point(0, 0);
+      this.panelTopBar.Name = "panelTopBar";
+      this.panelTopBar.Size = new System.Drawing.Size(284, 21);
+      this.panelTopBar.TabIndex = 2;
+      // 
+      // linkLabelStatus
+      // 
+      this.linkLabelStatus.AutoSize = true;
+      this.linkLabelStatus.Location = new System.Drawing.Point(78, 3);
+      this.linkLabelStatus.Name = "linkLabelStatus";
+      this.linkLabelStatus.Size = new System.Drawing.Size(70, 13);
+      this.linkLabelStatus.TabIndex = 3;
+      this.linkLabelStatus.TabStop = true;
+      this.linkLabelStatus.Text = "Not logged in";
+      this.linkLabelStatus.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabelStatus_LinkClicked);
+      // 
+      // lblLoginStatus
+      // 
+      this.lblLoginStatus.AutoSize = true;
+      this.lblLoginStatus.Location = new System.Drawing.Point(3, 3);
+      this.lblLoginStatus.Name = "lblLoginStatus";
+      this.lblLoginStatus.Size = new System.Drawing.Size(69, 13);
+      this.lblLoginStatus.TabIndex = 2;
+      this.lblLoginStatus.Text = "Login Status:";
+      // 
+      // panelScrobble
+      // 
+      this.panelScrobble.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.panelScrobble.Controls.Add(this.textBoxAlbum);
+      this.panelScrobble.Controls.Add(this.lblAlbum);
+      this.panelScrobble.Controls.Add(this.textBoxTrack);
+      this.panelScrobble.Controls.Add(this.lblTrack);
+      this.panelScrobble.Controls.Add(this.textBoxArtist);
+      this.panelScrobble.Controls.Add(this.lblArtist);
+      this.panelScrobble.Dock = System.Windows.Forms.DockStyle.Fill;
+      this.panelScrobble.Location = new System.Drawing.Point(0, 21);
+      this.panelScrobble.Name = "panelScrobble";
+      this.panelScrobble.Size = new System.Drawing.Size(284, 241);
+      this.panelScrobble.TabIndex = 3;
+      // 
+      // lblArtist
+      // 
+      this.lblArtist.AutoSize = true;
+      this.lblArtist.Location = new System.Drawing.Point(3, 6);
+      this.lblArtist.Name = "lblArtist";
+      this.lblArtist.Size = new System.Drawing.Size(33, 13);
+      this.lblArtist.TabIndex = 4;
+      this.lblArtist.Text = "Artist:";
+      // 
+      // textBoxArtist
+      // 
+      this.textBoxArtist.Location = new System.Drawing.Point(42, 3);
+      this.textBoxArtist.Name = "textBoxArtist";
+      this.textBoxArtist.Size = new System.Drawing.Size(229, 20);
+      this.textBoxArtist.TabIndex = 5;
+      // 
+      // textBoxTrack
+      // 
+      this.textBoxTrack.Location = new System.Drawing.Point(42, 29);
+      this.textBoxTrack.Name = "textBoxTrack";
+      this.textBoxTrack.Size = new System.Drawing.Size(229, 20);
+      this.textBoxTrack.TabIndex = 7;
+      // 
+      // lblTrack
+      // 
+      this.lblTrack.AutoSize = true;
+      this.lblTrack.Location = new System.Drawing.Point(3, 32);
+      this.lblTrack.Name = "lblTrack";
+      this.lblTrack.Size = new System.Drawing.Size(38, 13);
+      this.lblTrack.TabIndex = 6;
+      this.lblTrack.Text = "Track:";
+      // 
+      // panel1
+      // 
+      this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.panel1.Controls.Add(this.lblScrobbleStatusInfo);
+      this.panel1.Controls.Add(this.lblScrobbleStatus);
+      this.panel1.Controls.Add(this.btnScrobble);
+      this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
+      this.panel1.Location = new System.Drawing.Point(0, 231);
+      this.panel1.Name = "panel1";
+      this.panel1.Size = new System.Drawing.Size(284, 31);
+      this.panel1.TabIndex = 4;
+      // 
+      // btnScrobble
+      // 
+      this.btnScrobble.Dock = System.Windows.Forms.DockStyle.Left;
+      this.btnScrobble.Location = new System.Drawing.Point(0, 0);
+      this.btnScrobble.Name = "btnScrobble";
+      this.btnScrobble.Size = new System.Drawing.Size(75, 29);
+      this.btnScrobble.TabIndex = 0;
+      this.btnScrobble.Text = "Scrobble!";
+      this.btnScrobble.UseVisualStyleBackColor = true;
+      this.btnScrobble.Click += new System.EventHandler(this.btnScrobble_Click);
+      // 
+      // textBoxAlbum
+      // 
+      this.textBoxAlbum.Location = new System.Drawing.Point(42, 56);
+      this.textBoxAlbum.Name = "textBoxAlbum";
+      this.textBoxAlbum.Size = new System.Drawing.Size(229, 20);
+      this.textBoxAlbum.TabIndex = 9;
+      // 
+      // lblAlbum
+      // 
+      this.lblAlbum.AutoSize = true;
+      this.lblAlbum.Location = new System.Drawing.Point(3, 59);
+      this.lblAlbum.Name = "lblAlbum";
+      this.lblAlbum.Size = new System.Drawing.Size(39, 13);
+      this.lblAlbum.TabIndex = 8;
+      this.lblAlbum.Text = "Album:";
+      // 
+      // lblScrobbleStatus
+      // 
+      this.lblScrobbleStatus.AutoSize = true;
+      this.lblScrobbleStatus.Location = new System.Drawing.Point(81, 0);
+      this.lblScrobbleStatus.Name = "lblScrobbleStatus";
+      this.lblScrobbleStatus.Size = new System.Drawing.Size(85, 13);
+      this.lblScrobbleStatus.TabIndex = 4;
+      this.lblScrobbleStatus.Text = "Scrobble Status:";
+      // 
+      // lblScrobbleStatusInfo
+      // 
+      this.lblScrobbleStatusInfo.AutoSize = true;
+      this.lblScrobbleStatusInfo.Location = new System.Drawing.Point(172, 0);
+      this.lblScrobbleStatusInfo.Name = "lblScrobbleStatusInfo";
+      this.lblScrobbleStatusInfo.Size = new System.Drawing.Size(47, 13);
+      this.lblScrobbleStatusInfo.TabIndex = 5;
+      this.lblScrobbleStatusInfo.Text = "Nothing.";
       // 
       // MainForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
       this.ClientSize = new System.Drawing.Size(284, 262);
+      this.Controls.Add(this.panel1);
+      this.Controls.Add(this.panelScrobble);
+      this.Controls.Add(this.panelTopBar);
       this.Name = "MainForm";
       this.Text = "Scrubbler";
+      this.panelTopBar.ResumeLayout(false);
+      this.panelTopBar.PerformLayout();
+      this.panelScrobble.ResumeLayout(false);
+      this.panelScrobble.PerformLayout();
+      this.panel1.ResumeLayout(false);
+      this.panel1.PerformLayout();
       this.ResumeLayout(false);
 
     }
 
     #endregion
+
+    private System.Windows.Forms.Panel panelTopBar;
+    private System.Windows.Forms.LinkLabel linkLabelStatus;
+    private System.Windows.Forms.Label lblLoginStatus;
+    private System.Windows.Forms.Panel panelScrobble;
+    private System.Windows.Forms.Label lblArtist;
+    private System.Windows.Forms.TextBox textBoxTrack;
+    private System.Windows.Forms.Label lblTrack;
+    private System.Windows.Forms.TextBox textBoxArtist;
+    private System.Windows.Forms.Panel panel1;
+    private System.Windows.Forms.Button btnScrobble;
+    private System.Windows.Forms.TextBox textBoxAlbum;
+    private System.Windows.Forms.Label lblAlbum;
+    private System.Windows.Forms.Label lblScrobbleStatusInfo;
+    private System.Windows.Forms.Label lblScrobbleStatus;
   }
 }
 
