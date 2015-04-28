@@ -20,6 +20,8 @@ namespace Scrubbler
     {
       InitializeComponent();
       _client = new LastfmClient(APIKEY, APISECRET);
+      dateTimePicker1.MinDate = dateTimePicker1.Value.AddDays(-14.0);
+      dateTimePicker1.MaxDate = dateTimePicker1.Value;
       
     }
 
