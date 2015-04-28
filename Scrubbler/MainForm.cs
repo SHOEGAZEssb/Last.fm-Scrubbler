@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using IF.Lastfm.Core.Api;
 using IF.Lastfm.Core.Objects;
@@ -49,7 +42,8 @@ namespace Scrubbler
 
     private async void btnScrobble_Click(object sender, EventArgs e)
     {
-      lblScrobbleStatusInfo.Text = "Trying to scrobble.";
+      lblScrobbleStatusInfo.Text = "Trying to scrobble.";  
+      dateTimePicker1.Value = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day, dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, dateTimePicker2.Value.Second);
       Scrobble s = new Scrobble(textBoxArtist.Text, textBoxAlbum.Text, textBoxTrack.Text, dateTimePicker1.Value);
       var response = await _scrobbler.ScrobbleAsync(s);
       if(response.Success)
