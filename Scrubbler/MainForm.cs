@@ -21,8 +21,7 @@ namespace Scrubbler
       InitializeComponent();
       _client = new LastfmClient(APIKEY, APISECRET);
       dateTimePicker1.MinDate = dateTimePicker1.Value.AddDays(-14.0);
-      dateTimePicker1.MaxDate = dateTimePicker1.Value;
-      
+      dateTimePicker1.MaxDate = dateTimePicker1.Value;   
     }
 
     private void linkLabelStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -52,6 +51,12 @@ namespace Scrubbler
         lblScrobbleStatusInfo.Text = "Successfully scrobbled.";
       else
         lblScrobbleStatusInfo.Text = "Failed to scrobble.";
+    }
+
+    private void btnNow_Click(object sender, EventArgs e)
+    {
+      dateTimePicker1.MaxDate = DateTime.Now;
+      dateTimePicker2.Value = DateTime.Now;
     }
   }
 }

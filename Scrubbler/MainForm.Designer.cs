@@ -32,6 +32,8 @@
       this.linkLabelStatus = new System.Windows.Forms.LinkLabel();
       this.lblLoginStatus = new System.Windows.Forms.Label();
       this.panelScrobble = new System.Windows.Forms.Panel();
+      this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+      this.lblTime = new System.Windows.Forms.Label();
       this.lblDate = new System.Windows.Forms.Label();
       this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
       this.textBoxAlbum = new System.Windows.Forms.TextBox();
@@ -44,8 +46,7 @@
       this.lblScrobbleStatusInfo = new System.Windows.Forms.Label();
       this.lblScrobbleStatus = new System.Windows.Forms.Label();
       this.btnScrobble = new System.Windows.Forms.Button();
-      this.lblTime = new System.Windows.Forms.Label();
-      this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+      this.btnNow = new System.Windows.Forms.Button();
       this.panelTopBar.SuspendLayout();
       this.panelScrobble.SuspendLayout();
       this.panel1.SuspendLayout();
@@ -85,6 +86,7 @@
       // panelScrobble
       // 
       this.panelScrobble.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+      this.panelScrobble.Controls.Add(this.btnNow);
       this.panelScrobble.Controls.Add(this.dateTimePicker2);
       this.panelScrobble.Controls.Add(this.lblTime);
       this.panelScrobble.Controls.Add(this.lblDate);
@@ -100,6 +102,24 @@
       this.panelScrobble.Name = "panelScrobble";
       this.panelScrobble.Size = new System.Drawing.Size(284, 241);
       this.panelScrobble.TabIndex = 3;
+      // 
+      // dateTimePicker2
+      // 
+      this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+      this.dateTimePicker2.Location = new System.Drawing.Point(42, 108);
+      this.dateTimePicker2.Name = "dateTimePicker2";
+      this.dateTimePicker2.ShowUpDown = true;
+      this.dateTimePicker2.Size = new System.Drawing.Size(148, 20);
+      this.dateTimePicker2.TabIndex = 13;
+      // 
+      // lblTime
+      // 
+      this.lblTime.AutoSize = true;
+      this.lblTime.Location = new System.Drawing.Point(3, 110);
+      this.lblTime.Name = "lblTime";
+      this.lblTime.Size = new System.Drawing.Size(33, 13);
+      this.lblTime.TabIndex = 12;
+      this.lblTime.Text = "Time:";
       // 
       // lblDate
       // 
@@ -207,23 +227,15 @@
       this.btnScrobble.UseVisualStyleBackColor = true;
       this.btnScrobble.Click += new System.EventHandler(this.btnScrobble_Click);
       // 
-      // lblTime
+      // btnNow
       // 
-      this.lblTime.AutoSize = true;
-      this.lblTime.Location = new System.Drawing.Point(3, 110);
-      this.lblTime.Name = "lblTime";
-      this.lblTime.Size = new System.Drawing.Size(33, 13);
-      this.lblTime.TabIndex = 12;
-      this.lblTime.Text = "Time:";
-      // 
-      // dateTimePicker2
-      // 
-      this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-      this.dateTimePicker2.Location = new System.Drawing.Point(42, 108);
-      this.dateTimePicker2.Name = "dateTimePicker2";
-      this.dateTimePicker2.ShowUpDown = true;
-      this.dateTimePicker2.Size = new System.Drawing.Size(229, 20);
-      this.dateTimePicker2.TabIndex = 13;
+      this.btnNow.Location = new System.Drawing.Point(196, 108);
+      this.btnNow.Name = "btnNow";
+      this.btnNow.Size = new System.Drawing.Size(75, 20);
+      this.btnNow.TabIndex = 14;
+      this.btnNow.Text = "Now";
+      this.btnNow.UseVisualStyleBackColor = true;
+      this.btnNow.Click += new System.EventHandler(this.btnNow_Click);
       // 
       // MainForm
       // 
@@ -266,6 +278,7 @@
     private System.Windows.Forms.DateTimePicker dateTimePicker1;
     private System.Windows.Forms.DateTimePicker dateTimePicker2;
     private System.Windows.Forms.Label lblTime;
+    private System.Windows.Forms.Button btnNow;
   }
 }
 
