@@ -46,7 +46,8 @@
       this.lblScrobbleStatusInfo = new System.Windows.Forms.Label();
       this.lblScrobbleStatus = new System.Windows.Forms.Label();
       this.btnScrobble = new System.Windows.Forms.Button();
-      this.btnNow = new System.Windows.Forms.Button();
+      this.checkBoxCurrentDate = new System.Windows.Forms.CheckBox();
+      this.checkBoxCurrentTime = new System.Windows.Forms.CheckBox();
       this.panelTopBar.SuspendLayout();
       this.panelScrobble.SuspendLayout();
       this.panel1.SuspendLayout();
@@ -86,7 +87,8 @@
       // panelScrobble
       // 
       this.panelScrobble.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-      this.panelScrobble.Controls.Add(this.btnNow);
+      this.panelScrobble.Controls.Add(this.checkBoxCurrentTime);
+      this.panelScrobble.Controls.Add(this.checkBoxCurrentDate);
       this.panelScrobble.Controls.Add(this.dateTimePicker2);
       this.panelScrobble.Controls.Add(this.lblTime);
       this.panelScrobble.Controls.Add(this.lblDate);
@@ -105,11 +107,12 @@
       // 
       // dateTimePicker2
       // 
+      this.dateTimePicker2.Enabled = false;
       this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
       this.dateTimePicker2.Location = new System.Drawing.Point(42, 108);
       this.dateTimePicker2.Name = "dateTimePicker2";
       this.dateTimePicker2.ShowUpDown = true;
-      this.dateTimePicker2.Size = new System.Drawing.Size(148, 20);
+      this.dateTimePicker2.Size = new System.Drawing.Size(183, 20);
       this.dateTimePicker2.TabIndex = 13;
       // 
       // lblTime
@@ -132,9 +135,10 @@
       // 
       // dateTimePicker1
       // 
+      this.dateTimePicker1.Enabled = false;
       this.dateTimePicker1.Location = new System.Drawing.Point(42, 82);
       this.dateTimePicker1.Name = "dateTimePicker1";
-      this.dateTimePicker1.Size = new System.Drawing.Size(229, 20);
+      this.dateTimePicker1.Size = new System.Drawing.Size(183, 20);
       this.dateTimePicker1.TabIndex = 10;
       // 
       // textBoxAlbum
@@ -227,15 +231,31 @@
       this.btnScrobble.UseVisualStyleBackColor = true;
       this.btnScrobble.Click += new System.EventHandler(this.btnScrobble_Click);
       // 
-      // btnNow
+      // checkBoxCurrentDate
       // 
-      this.btnNow.Location = new System.Drawing.Point(196, 108);
-      this.btnNow.Name = "btnNow";
-      this.btnNow.Size = new System.Drawing.Size(75, 20);
-      this.btnNow.TabIndex = 14;
-      this.btnNow.Text = "Now";
-      this.btnNow.UseVisualStyleBackColor = true;
-      this.btnNow.Click += new System.EventHandler(this.btnNow_Click);
+      this.checkBoxCurrentDate.AutoSize = true;
+      this.checkBoxCurrentDate.Checked = true;
+      this.checkBoxCurrentDate.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.checkBoxCurrentDate.Location = new System.Drawing.Point(227, 84);
+      this.checkBoxCurrentDate.Name = "checkBoxCurrentDate";
+      this.checkBoxCurrentDate.Size = new System.Drawing.Size(60, 17);
+      this.checkBoxCurrentDate.TabIndex = 15;
+      this.checkBoxCurrentDate.Text = "Current";
+      this.checkBoxCurrentDate.UseVisualStyleBackColor = true;
+      this.checkBoxCurrentDate.CheckedChanged += new System.EventHandler(this.UpdateTimes);
+      // 
+      // checkBoxCurrentTime
+      // 
+      this.checkBoxCurrentTime.AutoSize = true;
+      this.checkBoxCurrentTime.Checked = true;
+      this.checkBoxCurrentTime.CheckState = System.Windows.Forms.CheckState.Checked;
+      this.checkBoxCurrentTime.Location = new System.Drawing.Point(227, 110);
+      this.checkBoxCurrentTime.Name = "checkBoxCurrentTime";
+      this.checkBoxCurrentTime.Size = new System.Drawing.Size(60, 17);
+      this.checkBoxCurrentTime.TabIndex = 16;
+      this.checkBoxCurrentTime.Text = "Current";
+      this.checkBoxCurrentTime.UseVisualStyleBackColor = true;
+      this.checkBoxCurrentTime.CheckedChanged += new System.EventHandler(this.UpdateTimes);
       // 
       // MainForm
       // 
@@ -278,7 +298,8 @@
     private System.Windows.Forms.DateTimePicker dateTimePicker1;
     private System.Windows.Forms.DateTimePicker dateTimePicker2;
     private System.Windows.Forms.Label lblTime;
-    private System.Windows.Forms.Button btnNow;
+    private System.Windows.Forms.CheckBox checkBoxCurrentTime;
+    private System.Windows.Forms.CheckBox checkBoxCurrentDate;
   }
 }
 

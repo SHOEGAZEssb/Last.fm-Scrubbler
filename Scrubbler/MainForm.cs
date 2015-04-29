@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using IF.Lastfm.Core.Api;
 using IF.Lastfm.Core.Objects;
 using IF.Lastfm.Core.Scrobblers;
+using System.Net.Http;
 
 namespace Scrubbler
 {
@@ -43,6 +44,7 @@ namespace Scrubbler
 
     private async void btnScrobble_Click(object sender, EventArgs e)
     {
+      UpdateTimes(sender, e);
       lblScrobbleStatusInfo.Text = "Trying to scrobble.";  
       dateTimePicker1.Value = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day, dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, dateTimePicker2.Value.Second);
       Scrobble s = new Scrobble(textBoxArtist.Text, textBoxAlbum.Text, textBoxTrack.Text, dateTimePicker1.Value);
@@ -53,10 +55,15 @@ namespace Scrubbler
         lblScrobbleStatusInfo.Text = "Failed to scrobble.";
     }
 
-    private void btnNow_Click(object sender, EventArgs e)
+    private void UpdateTimes(object sender, EventArgs e)
     {
       dateTimePicker1.MaxDate = DateTime.Now;
-      dateTimePicker2.Value = DateTime.Now;
+      dateTimePicker2.MaxDate = DateTime.Now;
+
+      if (checkBoxCurrentTime.Checked)
+        dateTimePicker2.Value = DateTime.Now;
+      if (checkBoxCurrentDate.Checked)
+        dateTimePicker1.Value = DateTime.Now;
     }
   }
 }
