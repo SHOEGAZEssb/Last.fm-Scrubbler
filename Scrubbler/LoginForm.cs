@@ -26,6 +26,7 @@ namespace Scrubbler
     /// </summary>
     private async void Login(object sender, EventArgs e)
     {
+      btnLogin.Enabled = false;
       var response = await _client.Auth.GetSessionTokenAsync(textBoxUsername.Text, textBoxPassword.Text);
       if (_client.Auth.Authenticated)
       {
@@ -33,7 +34,10 @@ namespace Scrubbler
         this.Close();
       }
       else
+      {
         MessageBox.Show("Failed to login or to authenticate.");
+        btnLogin.Enabled = true;
+      }
     }
 
     /// <summary>
