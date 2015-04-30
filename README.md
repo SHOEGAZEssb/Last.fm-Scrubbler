@@ -2,7 +2,7 @@
 Manual last.fm scrobbling, for when a service (or you!) failed to scrobble.
 
 # Features
-- Scrobble any track! (Given it exists in the last.fm database)
+- Scrobble any track!
 - Scrobble to the past! (Up to two weeks)
 - Set track name, artist name, album name, date and time! 
 
