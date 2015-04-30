@@ -68,13 +68,15 @@ namespace Scrubbler
     /// </summary>
     private void UpdateTimes(object sender, EventArgs e)
     {
-      dateTimePicker1.MaxDate = DateTime.Now;
-      dateTimePicker2.MaxDate = DateTime.Now;
+      DateTime now = DateTime.Now;
+
+      dateTimePicker1.MaxDate = now;
+      dateTimePicker2.MaxDate = now;
 
       if (checkBoxCurrentTime.Checked)
-        dateTimePicker2.Value = DateTime.Now;
+        dateTimePicker2.Value = now;
       if (checkBoxCurrentDate.Checked)
-        dateTimePicker1.Value = DateTime.Now;
+        dateTimePicker1.Value = now;
     }
   }
 }
