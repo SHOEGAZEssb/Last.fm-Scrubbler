@@ -3,10 +3,12 @@ using System.Windows.Forms;
 using IF.Lastfm.Core.Api;
 using IF.Lastfm.Core.Objects;
 using IF.Lastfm.Core.Scrobblers;
-using System.Net.Http;
 
 namespace Scrubbler
 {
+  /// <summary>
+  /// Form to enter track info and scrobble the track.
+  /// </summary>
   public partial class MainForm : Form
   {
     private LastfmClient _client;
@@ -25,6 +27,9 @@ namespace Scrubbler
       dateTimePicker1.MaxDate = dateTimePicker1.Value;   
     }
 
+    /// <summary>
+    /// Opens the login form.
+    /// </summary>
     private void linkLabelStatus_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
       LoginForm lf = new LoginForm(_client);
@@ -42,6 +47,9 @@ namespace Scrubbler
       }
     }
 
+    /// <summary>
+    /// Scrobbles the track entered in the textBoxes.
+    /// </summary>
     private async void btnScrobble_Click(object sender, EventArgs e)
     {
       UpdateTimes(sender, e);
@@ -55,6 +63,9 @@ namespace Scrubbler
         lblScrobbleStatusInfo.Text = "Failed to scrobble.";
     }
 
+    /// <summary>
+    /// Updates the DateTimes.
+    /// </summary>
     private void UpdateTimes(object sender, EventArgs e)
     {
       dateTimePicker1.MaxDate = DateTime.Now;
