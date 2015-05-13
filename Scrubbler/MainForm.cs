@@ -74,9 +74,19 @@ namespace Scrubbler
       dateTimePicker2.MaxDate = now;
 
       if (checkBoxCurrentTime.Checked)
+      {
         dateTimePicker2.Value = now;
+        dateTimePicker2.Enabled = false;
+      }
+      else
+        dateTimePicker2.Enabled = true;
       if (checkBoxCurrentDate.Checked)
+      {
         dateTimePicker1.Value = now;
+        dateTimePicker1.Enabled = false;
+      }
+      else
+        dateTimePicker1.Enabled = true;
     }
   }
 }
