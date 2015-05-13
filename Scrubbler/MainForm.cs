@@ -36,7 +36,7 @@ namespace Scrubbler
       lf.ShowDialog();
       if (_client.Auth.Authenticated)
       {
-        linkLabelStatus.Text = "Logged in";
+        linkLabelStatus.Text = "Logged in as " + _client.Auth.UserSession.Username;
         _scrobbler = new Scrobbler(_client.Auth);
         btnScrobble.Enabled = true;
       }
