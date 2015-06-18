@@ -33,6 +33,7 @@
       this.textBoxPassword = new System.Windows.Forms.TextBox();
       this.lblPassword = new System.Windows.Forms.Label();
       this.btnLogin = new System.Windows.Forms.Button();
+      this.chkBoxRememberMe = new System.Windows.Forms.CheckBox();
       this.SuspendLayout();
       // 
       // lblUsername
@@ -74,7 +75,7 @@
       // 
       // btnLogin
       // 
-      this.btnLogin.Location = new System.Drawing.Point(35, 137);
+      this.btnLogin.Location = new System.Drawing.Point(36, 157);
       this.btnLogin.Name = "btnLogin";
       this.btnLogin.Size = new System.Drawing.Size(75, 23);
       this.btnLogin.TabIndex = 4;
@@ -82,17 +83,28 @@
       this.btnLogin.UseVisualStyleBackColor = true;
       this.btnLogin.Click += new System.EventHandler(this.Login);
       // 
+      // chkBoxRememberMe
+      // 
+      this.chkBoxRememberMe.AutoSize = true;
+      this.chkBoxRememberMe.Location = new System.Drawing.Point(29, 137);
+      this.chkBoxRememberMe.Name = "chkBoxRememberMe";
+      this.chkBoxRememberMe.Size = new System.Drawing.Size(95, 17);
+      this.chkBoxRememberMe.TabIndex = 5;
+      this.chkBoxRememberMe.Text = "Remember Me";
+      this.chkBoxRememberMe.UseVisualStyleBackColor = true;
+      // 
       // LoginForm
       // 
       this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.ClientSize = new System.Drawing.Size(147, 168);
+      this.ClientSize = new System.Drawing.Size(147, 192);
+      this.Controls.Add(this.chkBoxRememberMe);
       this.Controls.Add(this.btnLogin);
       this.Controls.Add(this.textBoxPassword);
       this.Controls.Add(this.lblPassword);
       this.Controls.Add(this.textBoxUsername);
       this.Controls.Add(this.lblUsername);
-      this.MaximumSize = new System.Drawing.Size(163, 206);
+      this.MaximumSize = new System.Drawing.Size(163, 230);
       this.Name = "LoginForm";
       this.Text = "LoginForm";
       this.ResumeLayout(false);
@@ -107,5 +119,6 @@
     private System.Windows.Forms.TextBox textBoxPassword;
     private System.Windows.Forms.Label lblPassword;
     private System.Windows.Forms.Button btnLogin;
+    private System.Windows.Forms.CheckBox chkBoxRememberMe;
   }
 }

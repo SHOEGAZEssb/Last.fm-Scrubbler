@@ -31,7 +31,9 @@ namespace Scrubbler
       if (_client.Auth.Authenticated)
       {
         MessageBox.Show("Successfully logged in and authenticated.");
-        SaveSession();
+        if(chkBoxRememberMe.Checked)
+          SaveSession();
+
         this.Close();
       }
       else
