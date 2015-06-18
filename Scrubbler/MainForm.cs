@@ -24,7 +24,20 @@ namespace Scrubbler
       InitializeComponent();
       _client = new LastfmClient(APIKEY, APISECRET);
       dateTimePicker1.MinDate = dateTimePicker1.Value.AddDays(-14.0);
-      dateTimePicker1.MaxDate = dateTimePicker1.Value;   
+      dateTimePicker1.MaxDate = dateTimePicker1.Value;
+      LoadLastSession();
+    }
+
+    /// <summary>
+    /// Loads the last saved session.
+    /// </summary>
+    private void LoadLastSession()
+    {
+      _client.Auth.LoadSession(new LastUserSession());
+      _client.Auth.UserSession.Token = Scrubbler.Properties.Settings.Default.Token;
+      _client.Auth.UserSession.Username = Scrubbler.Properties.Settings.Default.Username;
+      _client.Auth.UserSession.IsSubscriber = Scrubbler.Properties.Settings.Default.IsSubscriber;
+      SetLoginStatus();
     }
 
     /// <summary>
@@ -34,6 +47,14 @@ namespace Scrubbler
     {
       LoginForm lf = new LoginForm(_client);
       lf.ShowDialog();
+      SetLoginStatus();
+    }
+
+    /// <summary>
+    /// Sets the login info and scrobble based on the current loaded user session.
+    /// </summary>
+    private void SetLoginStatus()
+    {
       if (_client.Auth.Authenticated)
       {
         linkLabelStatus.Text = "Logged in as " + _client.Auth.UserSession.Username;
@@ -53,11 +74,11 @@ namespace Scrubbler
     private async void btnScrobble_Click(object sender, EventArgs e)
     {
       UpdateTimes(sender, e);
-      lblScrobbleStatusInfo.Text = "Trying to scrobble.";  
+      lblScrobbleStatusInfo.Text = "Trying to scrobble.";
       dateTimePicker1.Value = new DateTime(dateTimePicker1.Value.Year, dateTimePicker1.Value.Month, dateTimePicker1.Value.Day, dateTimePicker2.Value.Hour, dateTimePicker2.Value.Minute, dateTimePicker2.Value.Second);
       Scrobble s = new Scrobble(textBoxArtist.Text, textBoxAlbum.Text, textBoxTrack.Text, dateTimePicker1.Value);
       var response = await _scrobbler.ScrobbleAsync(s);
-      if(response.Success)
+      if (response.Success)
         lblScrobbleStatusInfo.Text = "Successfully scrobbled.";
       else
         lblScrobbleStatusInfo.Text = "Failed to scrobble.";

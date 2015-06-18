@@ -31,6 +31,7 @@ namespace Scrubbler
       if (_client.Auth.Authenticated)
       {
         MessageBox.Show("Successfully logged in and authenticated.");
+        SaveSession();
         this.Close();
       }
       else
@@ -47,6 +48,17 @@ namespace Scrubbler
     {
       if (e.KeyChar == (char)13)
         Login(sender, e);
+    }
+
+    /// <summary>
+    /// Saves the current session.
+    /// </summary>
+    private void SaveSession()
+    {
+      Scrubbler.Properties.Settings.Default.Token = _client.Auth.UserSession.Token;
+      Scrubbler.Properties.Settings.Default.Username = _client.Auth.UserSession.Username;
+      Scrubbler.Properties.Settings.Default.IsSubscriber = _client.Auth.UserSession.IsSubscriber;
+      Scrubbler.Properties.Settings.Default.Save();
     }
   }
 }
