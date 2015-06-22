@@ -22,6 +22,7 @@ namespace Scrubbler
     public MainForm()
     {
       InitializeComponent();
+      Icon = Scrubbler.Properties.Resources.scrubbler_64;
       _client = new LastfmClient(APIKEY, APISECRET);
       dateTimePicker1.MinDate = dateTimePicker1.Value.AddDays(-14.0);
       dateTimePicker1.MaxDate = dateTimePicker1.Value;
