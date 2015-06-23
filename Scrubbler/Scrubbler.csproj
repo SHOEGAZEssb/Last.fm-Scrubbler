@@ -33,8 +33,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Resources\scrubbler_64.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="IF.Lastfm.Core, Version=0.2.0.211, Culture=neutral, processorArchitecture=MSIL">
