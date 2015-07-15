@@ -302,4 +302,3 @@
     private System.Windows.Forms.CheckBox checkBoxCurrentDate;
   }
 }
-
