@@ -1,3 +1,7 @@
+# IMPORTANT
+This software is pretty much outdated as I created a newer, better version of this software with more functionality.
+Check it out here: https://github.com/coczero/Last.fm-Scrubbler-WPF
+
 # Scrubbler
 Manual last.fm scrobbling, for when a service (or you!) failed to scrobble.
 
